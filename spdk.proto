@@ -1,0 +1,10 @@
+﻿syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+service Spdk {
+  rpc GetSpdkVersion (google.protobuf.Empty) returns (SpdkVersion);
+}
+
+message SpdkVersion {
+  string version = 1;
+}
