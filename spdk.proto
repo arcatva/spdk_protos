@@ -1,4 +1,5 @@
 ﻿syntax = "proto3";
+option go_package = "github.com/arcatva/spdktgt_svr/grpc/protos;protos";
 import "google/protobuf/empty.proto";
 
 service Spdk {
