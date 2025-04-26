@@ -15,10 +15,10 @@ message SpdkVersion {
 message FrameworkReactors {
   uint64 tick_rate = 1;       
   uint32 pid       = 2;            
-  repeated Reactor reactors = 3;    
+  repeated FrameworkReactor reactors = 3;    
 }
 
-message Reactor {
+message FrameworkReactor {
   uint32 lcore        = 1;
   uint32 tid          = 2;
   uint64 busy         = 3;
@@ -27,10 +27,10 @@ message Reactor {
   uint32 irq          = 6;
   uint64 sys          = 7;
   uint64 usr          = 8;
-  repeated LwThread lw_threads = 9;
+  repeated FrameworkReactorLwThread lw_threads = 9;
 }
 
-message LwThread {
+message FrameworkReactorLwThread {
   string name    = 1;  
   uint32 id      = 2;  
   string cpumask = 3;  
@@ -39,13 +39,13 @@ message LwThread {
 
 
 message NvmfSubsystems {
-    repeated Subsystem subsystems = 1;
+    repeated NvmfSubsystem subsystems = 1;
 }
 
 message NvmfSubsystem {
     string nqn                   = 1;
     string subtype               = 2;
-    repeated ListenAddress listen_addresses = 3;
+    repeated NvmfListenAddress listen_addresses = 3;
     bool   allow_any_host        = 4;
     repeated string hosts        = 5;
     string    serial_number      = 6;
@@ -53,17 +53,17 @@ message NvmfSubsystem {
     uint32    max_namespaces     = 8;
     uint32    min_cntlid         = 9;
     uint32    max_cntlid         = 10;
-    repeated Namespace namespaces = 11;
+    repeated NvmfNamespace namespaces = 11;
 }
 
-message ListenAddress {
+message NvmfListenAddress {
     string trtype   = 1;
     string adrfam   = 2;
     string traddr   = 3;
     string trsvcid  = 4;
 }
 
-message Namespace {
+message NvmfNamespace {
     uint32 nsid        = 1;
     string bdev_name   = 2;
     string name        = 3;
